@@ -9,7 +9,8 @@ pipeline {
         }
         stage('this') {
             steps {
-                echo 'Hello World'
+                sh '''docker build -t vedacode/customnginx .
+                docker run -itd vedacode/customnginx '''
             }
         }
         stage('is') {
