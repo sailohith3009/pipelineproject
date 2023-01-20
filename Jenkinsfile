@@ -9,18 +9,18 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                sh '''docker build -t vedacode/customnginx .
+                sh '''docker build -t vedacodes/customnginx .
                 '''
             }
         }
         stage('Start Docker Container') {
             steps {
-                sh 'docker run -itd -p 8081:80 --name=mynginx vedacode/customnginx'
+                sh 'docker run -itd -p 8081:80 --name=mynginx vedacodes/customnginx'
             }
         }
-        stage('Final') {
+        stage('Success Message') {
             steps {
-                echo 'Hello World'
+                echo 'Successfully completed is pipeline'
             }
         }
     }
