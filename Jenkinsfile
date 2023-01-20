@@ -2,15 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Remove all containers') {
             steps {
-                echo 'Hello World'
+                docker ps -aq | xargs docker stop | xargs docker rm
             }
         }
         stage('docker build') {
             steps {
                 sh '''docker build -t vedacode/customnginx .
-                docker stop mynginx
                 '''
             }
         }
