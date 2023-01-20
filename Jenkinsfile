@@ -7,18 +7,18 @@ pipeline {
                 sh 'docker ps -aq | xargs docker stop | xargs docker rm'
             }
         }
-        stage('docker build') {
+        stage('Build Image') {
             steps {
                 sh '''docker build -t vedacode/customnginx .
                 '''
             }
         }
-        stage('docker run') {
+        stage('Start Docker Container') {
             steps {
                 sh 'docker run -itd -p 8081:80 --name=mynginx vedacode/customnginx'
             }
         }
-        stage('pipeline') {
+        stage('Final') {
             steps {
                 echo 'Hello World'
             }
