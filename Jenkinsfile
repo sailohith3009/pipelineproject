@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Remove all containers') {
             steps {
-                docker ps -aq | xargs docker stop | xargs docker rm
+                sh 'docker ps -aq | xargs docker stop | xargs docker rm'
             }
         }
         stage('docker build') {
