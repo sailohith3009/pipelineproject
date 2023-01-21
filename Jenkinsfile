@@ -9,13 +9,13 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                sh '''docker build -t vedacodes/customnginx .
+                sh '''docker build -t lohith30/customnginx .
                 '''
             }
         }
         stage('Start Docker Container') {
             steps {
-                sh 'docker run -itd -p 8081:80 --name=mynginx vedacodes/customnginx'
+                sh 'docker run -itd -p 8081:80 --name=mynginx lohith30/customnginx'
             }
         }
         stage('Success Message') {
